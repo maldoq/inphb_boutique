@@ -252,15 +252,15 @@ h1 b {
 /* shared */
 .kick {
   display: inline-block;
-  font: 700 1rem var(--font-grotesk);
+  font: 700 1.4rem var(--font-grotesk);
   background: #eaf3ed;
   color: var(--g);
-  padding: 0.34rem 0.82rem;
+  padding: 0.55rem 1.2rem;
   border-radius: 4px;
   margin-bottom: 1.2rem;
 }
 h2 {
-  font-size: clamp(1.9rem, 3.8vw, 3.2rem);
+  font-size: clamp(1.35rem, 2.3vw, 2.1rem);
   font-weight: 700;
   max-width: 16ch;
 }
@@ -417,10 +417,51 @@ h2 {
   grid-template-columns: repeat(3, 1fr);
   gap: 1rem;
 }
-.legend p {
-  margin: 0.4rem 0 0;
+.team-role {
+  min-height: 150px;
+  padding: 1.25rem;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: #fff;
+  transition:
+    border-color 0.25s ease,
+    box-shadow 0.25s ease,
+    translate 0.25s ease;
+}
+.team-role:hover {
+  translate: 0 -4px;
+  border-color: #a9cbb4;
+  box-shadow: 0 12px 28px rgba(6, 113, 56, 0.1);
+}
+.team-role h3 {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  font-size: 1.3rem !important;
+  font-weight: 700;
+}
+.team-role p {
+  margin: 0.65rem 0 0;
   color: var(--mut);
-  font-size: 0.95rem;
+  font-size: 0.96rem;
+  font-weight: 600;
+}
+.team-role-featured {
+  border-color: #9ac6a8;
+  background: #edf5ef;
+  animation: role-highlight 2.8s ease-in-out infinite alternate;
+}
+.team-role-featured h3 {
+  color: var(--g);
+}
+@keyframes role-highlight {
+  from {
+    box-shadow: 0 0 0 rgba(6, 113, 56, 0);
+  }
+  to {
+    box-shadow: 0 8px 24px rgba(6, 113, 56, 0.12);
+  }
 }
 .tag {
   background: #fff2e5;
@@ -455,7 +496,7 @@ h2 {
   position: absolute;
   left: 8%;
   right: 8%;
-  top: 32px;
+  top: 25px;
   border-top: 1px solid var(--line);
 }
 .step {
@@ -463,12 +504,12 @@ h2 {
   position: relative;
 }
 .step svg {
-  width: 64px;
-  height: 64px;
+  width: 50px;
+  height: 50px;
   background: var(--bg);
   border: 1px solid var(--line);
   border-radius: 50%;
-  padding: 15px;
+  padding: 12px;
   color: var(--g);
   position: relative;
   transition: transform 0.3s;
@@ -495,7 +536,7 @@ h2 {
     gap: 1.6rem;
   }
   .flow::before {
-    left: 31px;
+    left: 24px;
     right: auto;
     top: 0;
     bottom: 0;
@@ -504,7 +545,7 @@ h2 {
   }
   .step {
     display: grid;
-    grid-template-columns: 64px 1fr;
+    grid-template-columns: 50px 1fr;
     gap: 1rem;
     text-align: left;
     align-items: center;
@@ -736,7 +777,7 @@ details p {
 }
 .final h2 {
   max-width: 18ch;
-  font-size: clamp(1.9rem, 3.8vw, 3.2rem);
+  font-size: clamp(1.35rem, 2.3vw, 2.1rem);
 }
 .final .btn {
   margin-top: 2rem;

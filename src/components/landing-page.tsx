@@ -306,7 +306,7 @@ export function LandingPage() {
                     "La prochaine",
                     <b key="b">identité visuelle</b>,
                     "de l’INP-HB",
-                    <em key="e">commence ici.</em>,
+                    <em key="e">commence ici!</em>,
                   ]}
                 />
               </h1>
@@ -343,9 +343,16 @@ export function LandingPage() {
             <span className="kick">Le projet</span>
             <h2>Une boutique institutionnelle aux couleurs de l’INP-HB.</h2>
             <p className="lead">
-              De l’UM6P au Maroc à l’Université du Michigan, de grandes universités proposent des
-              objets aux couleurs de leur établissement. L’INP-HB souhaite rejoindre cette dynamique
-              et offrir à sa communauté une boutique qui lui ressemble.
+              Les grandes universités du monde, comme l&apos;UM6P au Maroc ou l&apos;Université du
+              Michigan aux États-Unis, possèdent chacune une boutique institutionnelle. On y trouve
+              des articles à l&apos;effigie de l&apos;établissement : pulls, vêtements, polos,
+              tasses et bien d&apos;autres objets. Ces boutiques permettent à chaque visiteur de
+              repartir avec un souvenir, et à chaque membre de la communauté universitaire de porter
+              avec fierté les couleurs de son école.
+              <br />
+              L&apos;Institut National Polytechnique Félix Houphouët-Boigny (INP-HB) entend
+              s&apos;inscrire dans cette dynamique et se doter, à son tour, de sa propre boutique
+              institutionnelle.
             </p>
 
             <div className="project-context-grid">
@@ -386,12 +393,13 @@ export function LandingPage() {
 
             <div className="project-team-note">
               <span className="project-team-mark" aria-hidden="true">
-                B2
+                BDE
               </span>
               <p>
-                <strong>Un projet porté avec les étudiants.</strong> Le Bureau des Élèves (B2)
-                contribue à l’équipe projet et travaille avec le comité de pilotage, qui valide les
-                grandes étapes.
+                <strong>Une équipe projet 100 % étudiante.</strong> Cette année, l’administration a
+                choisi de s’appuyer sur les étudiants eux-mêmes. Le Bureau des Élèves (BDE) a été
+                associé au projet en tant qu’équipe projet. L’équipe collabore directement avec le
+                comité de pilotage, qui valide chaque étape importante.
               </p>
             </div>
           </div>
@@ -416,8 +424,12 @@ export function LandingPage() {
             </div>
             <div className="legend">
               {team.map(([t, d], i) => (
-                <div key={t}>
-                  <h3 className="gk" style={{ fontSize: "1.3rem" }}>
+                <div
+                  className={`team-role rv ${i === 2 ? "team-role-featured" : ""}`}
+                  key={t}
+                  style={{ transitionDelay: `${i * 0.12}s` }}
+                >
+                  <h3 className="gk">
                     {t} {i === 2 && <span className="tag">2 à 3 places</span>}
                   </h3>
                   <p>{d}</p>
