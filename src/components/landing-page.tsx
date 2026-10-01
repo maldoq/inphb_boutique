@@ -56,10 +56,11 @@ const benefits: [string, string][] = [
   ["Expérience collective", "Une expérience marquante au sein d’une équipe pluridisciplinaire."],
 ];
 const timeline: [string, string][] = [
-  ["Dès maintenant", "Réception des candidatures"],
-  ["Novembre 2026", "Étude des profils et sélection"],
-  ["Dès la sélection", "Constitution de l’équipe créative"],
-  ["Immédiatement après", "Démarrage opérationnel du projet"],
+  ["Du jeudi 01 au samedi 03 octobre à 18h00 GMT", "Réception des candidatures"],
+  ["Samedi 03 octobre", "Étude des profils et sélection"],
+  ["Dimanche 04 octobre à partir de 15h00 GMT", "Entretiens en visioconférence"],
+  ["Lundi 05 octobre", "Constitution de l’équipe créative"],
+  ["Immédiatement après la constitution de l’équipe créative", "Démarrage opérationnel"],
 ];
 const faqs: [string, string][] = [
   [
@@ -75,8 +76,8 @@ const faqs: [string, string][] = [
     "La collaboration implique des temps d’échange et de validation. Le calendrier et le format seront partagés en amont.",
   ],
   [
-    "Quand le projet démarre-t-il ?",
-    "Le projet démarrera dès la finalisation de l’équipe créative. Notre objectif est de lancer les travaux dans les meilleurs délais après la sélection des graphistes.",
+    "Quand la collaboration démarre-t-elle ?",
+    "La collaboration démarre après la constitution de l’équipe créative, prévue le lundi 05 octobre. Le démarrage opérationnel a lieu immédiatement après.",
   ],
 ];
 

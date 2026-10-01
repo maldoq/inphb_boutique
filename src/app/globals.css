@@ -655,7 +655,7 @@ h2 {
 /* timeline */
 .tl {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(5, minmax(0, 1fr));
   margin-top: 3.5rem;
   position: relative;
 }
@@ -698,7 +698,7 @@ h2 {
   }
 }
 .tl b {
-  font: 700 1.3rem var(--font-grotesk);
+  font: 700 1.1rem var(--font-grotesk);
   display: block;
   letter-spacing: -0.03em;
 }
