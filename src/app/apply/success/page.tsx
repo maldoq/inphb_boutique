@@ -1,8 +1,21 @@
 "use client";
 
+import { Suspense } from "react";
+import { useSearchParams } from "next/navigation";
 import { motion } from "framer-motion";
 import { ArrowLeft, Check } from "lucide-react";
 import { ButtonLink } from "@/components/ui/button";
+
+function Reference() {
+  const ref = useSearchParams().get("ref");
+  if (!ref) return null;
+  return (
+    <div className="mt-6 rounded-xl border-2 border-dashed border-ink bg-tint px-4 py-3 text-left">
+      <span className="block text-xs font-bold text-muted">Votre référence de suivi</span>
+      <code className="mt-1 block break-all text-sm font-bold text-ink">{ref}</code>
+    </div>
+  );
+}
 
 export default function ApplicationSuccessPage() {
   return (
@@ -30,6 +43,9 @@ export default function ApplicationSuccessPage() {
         <p className="mt-3 text-sm text-muted">
           Pensez à surveiller votre boîte mail et votre WhatsApp.
         </p>
+        <Suspense fallback={null}>
+          <Reference />
+        </Suspense>
         <ButtonLink href="/" variant="secondary" className="mt-9">
           <ArrowLeft size={16} /> Retour à l’accueil
         </ButtonLink>

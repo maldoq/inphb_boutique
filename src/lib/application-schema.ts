@@ -48,6 +48,10 @@ const applicationFields = {
     .trim()
     .max(2048, "Le lien est trop long")
     .refine((value) => !value || z.string().url().safeParse(value).success, "Entrez une URL valide")
+    .refine(
+      (value) => !value || /^https?:\/\//i.test(value),
+      "Utilisez une URL commençant par http:// ou https://",
+    )
     .optional()
     .default(""),
   commitment: z.boolean().refine((value) => value, "Votre engagement est requis pour candidater."),
