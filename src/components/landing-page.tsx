@@ -3,7 +3,11 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect } from "react";
+import type { StaticImageData } from "next/image";
 import { Counter, MagneticLink, MaskLines } from "@/components/motion-kit";
+import teamImage from "@/assets/img/magnific_equipe_etudiant_africain.jpeg";
+import boutiqueImage from "@/assets/img/boutique_inphb.jpeg";
+import graphicImage from "@/assets/img/mockup_graphique_produuit.jpeg";
 
 export const LOGO = "https://inphb.edu.ci/wp-content/uploads/2024/03/inphblogo.png";
 const G = { fontFamily: "var(--font-grotesk)" };
@@ -12,7 +16,7 @@ const stats: [number | null, string, string, string?][] = [
   [3, "places de graphistes", "", ""],
   [5, "étapes, de l’idée au produit", "", ""],
   [6, "familles de produits", "", "+"],
-  [null, "lancement du projet", "Nov. 2026"],
+  [null, "lancement du projet", "Au plus tôt"],
 ];
 const team = [
   ["Proposeurs de produits", "Repèrent les idées et usages qui font sens pour la communauté."],
@@ -34,30 +38,33 @@ const steps: [string, string, string][] = [
     "M3 7l9-4 9 4v10l-9 4-9-4zM3 7l9 4 9-4M12 11v10",
   ],
 ];
-const skills: [string, number][] = [
-  ["Photoshop", 95],
-  ["Illustrator", 92],
-  ["Branding", 88],
-  ["Mockups", 84],
-  ["Design produit", 78],
+const skills = [
+  "Adobe Photoshop",
+  "Adobe Illustrator",
+  "Canva",
+  "CorelDRAW",
+  "Blender",
+  "Adobe After Effects",
 ];
 const benefits: [string, string][] = [
-  ["Grande récompense finale", "La reconnaissance de votre contribution."],
-  ["Projet réel", "Porté à l’échelle de l’école."],
-  ["Portfolio renforcé", "Des créations qui existent en vrai."],
-  ["Réseau", "Une équipe pluridisciplinaire."],
-  ["Visibilité", "Votre signature vue par toute la communauté."],
+  [
+    "Contribution reconnue",
+    "Un engagement valorisé et une contribution qui compte pour l’institution.",
+  ],
+  ["Projet concret", "Une collection pensée pour la communauté et portée à l’échelle de l’école."],
+  ["Portfolio enrichi", "Des créations appliquées à des supports et produits réels."],
+  ["Expérience collective", "Une expérience marquante au sein d’une équipe pluridisciplinaire."],
 ];
 const timeline: [string, string][] = [
-  ["Dès maintenant", "Ouverture des candidatures"],
-  ["À confirmer", "Clôture des candidatures"],
-  ["Après la clôture", "Étude des dossiers"],
-  ["Début nov. 2026", "Lancement du projet"],
+  ["Dès maintenant", "Réception des candidatures"],
+  ["Au plus tôt", "Étude des profils et sélection"],
+  ["Dès la sélection", "Constitution de l’équipe créative"],
+  ["Immédiatement après", "Démarrage opérationnel du projet"],
 ];
 const faqs: [string, string][] = [
   [
     "Le projet est-il rémunéré ?",
-    "Il s’agit d’un appel à collaboration autour d’un projet institutionnel. Les modalités, les éventuelles gratifications et la récompense finale seront précisées aux candidats retenus avant le démarrage.",
+    "Il s’agit d’un appel à collaboration autour d’un projet institutionnel. Les modalités de collaboration et, le cas échéant, les éventuelles gratifications seront précisées aux candidats retenus avant le démarrage.",
   ],
   [
     "Quel portfolio envoyer ?",
@@ -69,7 +76,7 @@ const faqs: [string, string][] = [
   ],
   [
     "Quand le projet démarre-t-il ?",
-    "Le lancement est prévu début novembre 2026, après l’étude des dossiers.",
+    "Le projet démarrera dès la finalisation de l’équipe créative. Notre objectif est de lancer les travaux dans les meilleurs délais après la sélection des graphistes.",
   ],
 ];
 
@@ -100,6 +107,11 @@ function Symbols() {
         <rect x="14" y="6" width="36" height="52" rx="3" fill="currentColor" />
         <circle cx="32" cy="26" r="9" fill="#fff" />
         <rect x="21" y="42" width="22" height="4" fill="#fff" />
+      </symbol>
+      <symbol id="notebook" viewBox="0 0 64 64">
+        <rect x="14" y="7" width="40" height="50" rx="3" fill="currentColor" />
+        <path d="M10 17h8M10 27h8M10 37h8M10 47h8" stroke="currentColor" strokeWidth="3" />
+        <path d="M24 20h20M24 28h16" stroke="#fff" strokeWidth="3" />
       </symbol>
     </svg>
   );
@@ -147,27 +159,43 @@ function Tile({
   );
 }
 
+function ProjectImage({
+  src,
+  title,
+  ratio,
+}: {
+  src: StaticImageData;
+  title: string;
+  ratio: string;
+}) {
+  return (
+    <div className="project-image" style={{ aspectRatio: ratio.replace(":", " / ") }}>
+      <Image src={src} alt={title} fill sizes="(max-width: 760px) 100vw, 760px" />
+    </div>
+  );
+}
+
 function HeroViz() {
   return (
     <svg
       className="viz"
-      viewBox="0 0 600 560"
+      viewBox="0 0 600 620"
       role="img"
-      aria-label="Schéma de la collection : hoodie, t-shirt, mug, tote bag et affiche autour du logo INP-HB"
+      aria-label="Exemples de produits de la boutique institutionnelle, présentés autour du logo INP-HB"
     >
-      <circle cx="300" cy="280" r="250" fill="var(--g)" />
+      <circle cx="300" cy="280" r="250" fill="var(--tint)" />
       <circle
         className="spin"
         cx="300"
         cy="280"
         r="190"
         fill="none"
-        stroke="#fff"
-        strokeWidth="2.5"
-        strokeDasharray="4 12"
+        stroke="var(--g)"
+        strokeWidth="1.5"
+        strokeDasharray="2 12"
         strokeLinecap="round"
       />
-      <circle cx="300" cy="280" r="84" fill="var(--bg)" stroke="var(--line)" strokeWidth="3" />
+      <circle cx="300" cy="280" r="84" fill="var(--bg)" stroke="var(--g)" strokeWidth="2" />
       <text
         x="300"
         y="276"
@@ -179,26 +207,44 @@ function HeroViz() {
       >
         INP·HB
       </text>
-      <text x="300" y="304" textAnchor="middle" fontSize="13" fill="var(--mut)">
-        Collection 01
+      <text x="300" y="304" textAnchor="middle" fontSize="12" fill="var(--mut)">
+        Boutique institutionnelle
       </text>
       <Tile x={96} y={120} id="hoodie" fill="#fff" color="#067138" />
-      <Tile x={398} y={96} id="tee" fill="#F47A00" color="#0A0A0A" />
+      <Tile x={398} y={96} id="tee" fill="#fff" color="#067138" />
       <Tile x={440} y={320} id="mug" fill="#fff" color="#067138" />
-      <Tile x={70} y={350} id="tote" fill="#0A0A0A" stroke="#fff" color="#F47A00" />
-      <Tile x={252} y={440} s={96} id="poster" fill="#fff" color="#067138" />
-      <g style={G} fontWeight="700" fontSize="14" fill="var(--ink)">
-        <text x="100" y="108">
-          Hoodies
+      <Tile x={70} y={350} id="tote" fill="#fff" stroke="#067138" color="#067138" />
+      <Tile x={252} y={440} s={96} id="notebook" fill="#fff" color="#067138" />
+      <g style={G} fontWeight="700" fontSize="13" fill="var(--ink)">
+        <text x="80" y="108">
+          Hoodie
+        </text>
+        <text x="80" y="238" fontSize="10" fontWeight="400" fill="var(--mut)">
+          Textile aux couleurs de l’école
         </text>
         <text x="398" y="84">
-          T-shirts
+          T-shirt
+        </text>
+        <text x="398" y="214" fontSize="10" fontWeight="400" fill="var(--mut)">
+          Collection étudiante
         </text>
         <text x="458" y="440">
-          Mugs
+          Mug
+        </text>
+        <text x="458" y="458" fontSize="10" fontWeight="400" fill="var(--mut)">
+          Objet du quotidien
         </text>
         <text x="76" y="474">
-          Tote bags
+          Tote bag
+        </text>
+        <text x="76" y="492" fontSize="10" fontWeight="400" fill="var(--mut)">
+          Accessoire institutionnel
+        </text>
+        <text x="242" y="550">
+          Carnet INP-HB
+        </text>
+        <text x="242" y="568" fontSize="10" fontWeight="400" fill="var(--mut)">
+          Papeterie de la boutique
         </text>
       </g>
     </svg>
@@ -318,6 +364,13 @@ export function LandingPage() {
                 </div>
               ))}
             </div>
+            <div className="team-visual">
+              <ProjectImage
+                src={teamImage}
+                title="Équipe étudiante en atelier collaboratif et gestion de projet"
+                ratio="16:9"
+              />
+            </div>
           </div>
         </section>
 
@@ -355,14 +408,11 @@ export function LandingPage() {
             <h2>Un lieu. Une collection.</h2>
             <div className="two">
               <article className="big rv">
-                <svg viewBox="0 0 600 240" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
-                  <rect width="600" height="240" fill="#FFB35C" />
-                  <circle cx="470" cy="70" r="40" fill="#fff" />
-                  <path d="M120 150 300 50l180 100z" fill="#067138" />
-                  <rect x="150" y="150" width="300" height="90" fill="#0A0A0A" />
-                  <rect x="270" y="170" width="60" height="70" fill="#F47A00" />
-                  <path d="M0 240h600v-14H0z" fill="#067138" />
-                </svg>
+                <ProjectImage
+                  src={boutiqueImage}
+                  title="Boutique institutionnelle de l’INP-HB"
+                  ratio="2:1"
+                />
                 <div>
                   <h3>Aménagement de la paillote</h3>
                   <p>
@@ -372,22 +422,11 @@ export function LandingPage() {
                 </div>
               </article>
               <article className="big rv" style={{ transitionDelay: ".12s" }}>
-                <svg viewBox="0 0 600 240" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
-                  <rect width="600" height="240" fill="#067138" />
-                  <circle
-                    cx="300"
-                    cy="120"
-                    r="150"
-                    fill="none"
-                    stroke="#fff"
-                    strokeWidth="2"
-                    strokeDasharray="4 10"
-                  />
-                  <use href="#hoodie" x="110" y="60" width="110" height="110" color="#fff" />
-                  <use href="#tee" x="245" y="40" width="110" height="110" color="#F47A00" />
-                  <use href="#mug" x="390" y="80" width="90" height="90" color="#fff" />
-                  <use href="#tote" x="40" y="130" width="70" height="70" color="#0A0A0A" />
-                </svg>
+                <ProjectImage
+                  src={graphicImage}
+                  title="Création graphique, mockups, produits dérivés et branding"
+                  ratio="2:1"
+                />
                 <div>
                   <h3>Collection de produits</h3>
                   <p>
@@ -406,19 +445,19 @@ export function LandingPage() {
               <span className="kick">Le profil</span>
               <h2>La maîtrise du geste, le goût du collectif.</h2>
               <p className="lead">
-                Nous recherchons 2 à 3 graphistes avancés. Voici le niveau attendu sur nos outils.
+                Nous recherchons 2 à 3 graphistes à l’aise avec les outils de création visuelle.
+                Photoshop et Illustrator constituent un avantage important.
               </p>
-              <div className="sk">
-                {skills.map(([n, v]) => (
-                  <div key={n}>
-                    {n}
-                    <i style={{ ["--v" as string]: `${v}%` }} />
-                    <span>{v}</span>
-                  </div>
+              <div className="sk" aria-label="Logiciels recherchés">
+                {skills.map((name) => (
+                  <span className="tool-badge" key={name}>
+                    {name}
+                  </span>
                 ))}
               </div>
             </div>
             <div className="ben">
+              <h3 className="benefits-heading">Ce que vous gagnez</h3>
               {benefits.map(([t, d], i) => (
                 <div className="card rv" key={t} style={{ transitionDelay: `${i * 0.08}s` }}>
                   <div className="gl" />

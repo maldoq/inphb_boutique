@@ -10,5 +10,5 @@ export const recruitmentDates = [
   { label: "Ouverture des candidatures", date: "Dès maintenant", status: "current" },
   { label: "Clôture des candidatures", date: "Date à confirmer", status: "upcoming" },
   { label: "Étude des dossiers", date: "Après la clôture", status: "upcoming" },
-  { label: "Lancement du projet", date: "Début novembre 2026", status: "upcoming" },
+  { label: "Lancement du projet", date: "Dès que l’équipe est constituée", status: "upcoming" },
 ] as const;
