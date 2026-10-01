@@ -252,15 +252,15 @@ h1 b {
 /* shared */
 .kick {
   display: inline-block;
-  font: 700 0.9rem var(--font-grotesk);
+  font: 700 1rem var(--font-grotesk);
   background: #eaf3ed;
   color: var(--g);
-  padding: 0.28rem 0.72rem;
+  padding: 0.34rem 0.82rem;
   border-radius: 4px;
   margin-bottom: 1.2rem;
 }
 h2 {
-  font-size: clamp(2.2rem, 5vw, 4.4rem);
+  font-size: clamp(1.9rem, 3.8vw, 3.2rem);
   font-weight: 700;
   max-width: 16ch;
 }
@@ -274,6 +274,106 @@ h2 {
   border-radius: 16px;
   padding: 1.6rem;
   background: var(--bg);
+}
+.project-overview > h2 {
+  max-width: 23ch;
+}
+.project-overview > .lead {
+  max-width: 52rem;
+}
+.project-context-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+.project-summary h3,
+.project-audiences > h3 {
+  font: 700 1.3rem var(--font-grotesk);
+  letter-spacing: -0.03em;
+}
+.project-summary p,
+.project-audience-grid p {
+  margin: 0.6rem 0 0;
+  color: var(--mut);
+}
+.project-vision {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 0;
+  padding: 1.6rem;
+  border-radius: 16px;
+  background: var(--g);
+  color: #fff;
+}
+.project-vision span {
+  color: #d4eadb;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+.project-vision p {
+  margin: 0.65rem 0 0;
+  font: 600 clamp(1.2rem, 2vw, 1.65rem) / 1.35 var(--font-grotesk);
+  letter-spacing: -0.025em;
+}
+.project-audiences {
+  margin-top: 2.2rem;
+}
+.project-audience-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  margin-top: 1rem;
+}
+.project-audience-grid article {
+  padding: 1.25rem;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: #fff;
+}
+.project-audience-grid h4 {
+  margin: 0;
+  font: 700 1.08rem var(--font-grotesk);
+  letter-spacing: -0.02em;
+}
+.project-audience-grid p {
+  font-size: 0.9rem;
+}
+.project-team-note {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 1rem;
+  padding: 1.1rem 1.3rem;
+  border: 1px solid #c8ddce;
+  border-radius: 12px;
+  background: #edf5ef;
+}
+.project-team-mark {
+  display: grid;
+  width: 44px;
+  height: 44px;
+  flex: 0 0 auto;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--g);
+  color: #fff;
+  font: 700 0.9rem var(--font-grotesk);
+}
+.project-team-note p {
+  color: var(--mut);
+}
+.project-team-note strong {
+  color: var(--ink);
+}
+@media (max-width: 760px) {
+  .project-context-grid,
+  .project-audience-grid {
+    grid-template-columns: 1fr;
+  }
 }
 /* team bar */
 .bar {
@@ -355,7 +455,7 @@ h2 {
   position: absolute;
   left: 8%;
   right: 8%;
-  top: 44px;
+  top: 32px;
   border-top: 1px solid var(--line);
 }
 .step {
@@ -363,12 +463,12 @@ h2 {
   position: relative;
 }
 .step svg {
-  width: 88px;
-  height: 88px;
+  width: 64px;
+  height: 64px;
   background: var(--bg);
   border: 1px solid var(--line);
   border-radius: 50%;
-  padding: 20px;
+  padding: 15px;
   color: var(--g);
   position: relative;
   transition: transform 0.3s;
@@ -395,7 +495,7 @@ h2 {
     gap: 1.6rem;
   }
   .flow::before {
-    left: 43px;
+    left: 31px;
     right: auto;
     top: 0;
     bottom: 0;
@@ -404,7 +504,7 @@ h2 {
   }
   .step {
     display: grid;
-    grid-template-columns: 88px 1fr;
+    grid-template-columns: 64px 1fr;
     gap: 1rem;
     text-align: left;
     align-items: center;
@@ -636,7 +736,7 @@ details p {
 }
 .final h2 {
   max-width: 18ch;
-  font-size: clamp(2.6rem, 6.5vw, 6rem);
+  font-size: clamp(1.9rem, 3.8vw, 3.2rem);
 }
 .final .btn {
   margin-top: 2rem;

@@ -16,7 +16,7 @@ const stats: [number | null, string, string, string?][] = [
   [3, "places de graphistes", "", ""],
   [5, "étapes, de l’idée au produit", "", ""],
   [6, "familles de produits", "", "+"],
-  [null, "lancement du projet", "Au plus tôt"],
+  [null, "lancement du projet", "Novembre 2026"],
 ];
 const team = [
   ["Proposeurs de produits", "Repèrent les idées et usages qui font sens pour la communauté."],
@@ -57,7 +57,7 @@ const benefits: [string, string][] = [
 ];
 const timeline: [string, string][] = [
   ["Dès maintenant", "Réception des candidatures"],
-  ["Au plus tôt", "Étude des profils et sélection"],
+  ["Novembre 2026", "Étude des profils et sélection"],
   ["Dès la sélection", "Constitution de l’équipe créative"],
   ["Immédiatement après", "Démarrage opérationnel du projet"],
 ];
@@ -284,6 +284,7 @@ export function LandingPage() {
             />
           </Link>
           <nav aria-label="Navigation principale">
+            <a href="#projet">Le projet</a>
             <a href="#equipe">Équipe</a>
             <a href="#process">Processus</a>
             <a href="#profil">Profil</a>
@@ -317,7 +318,7 @@ export function LandingPage() {
                 <MagneticLink href="/apply" className="btn o">
                   Postuler maintenant
                 </MagneticLink>
-                <MagneticLink href="#equipe" className="btn w2">
+                <MagneticLink href="#projet" className="btn w2">
                   Découvrir le projet
                 </MagneticLink>
               </div>
@@ -336,6 +337,65 @@ export function LandingPage() {
             ))}
           </div>
         </div>
+
+        <section id="projet" className="obs" style={{ background: "var(--tint)" }}>
+          <div className="w project-overview">
+            <span className="kick">Le projet</span>
+            <h2>Une boutique institutionnelle aux couleurs de l’INP-HB.</h2>
+            <p className="lead">
+              De l’UM6P au Maroc à l’Université du Michigan, de grandes universités proposent des
+              objets aux couleurs de leur établissement. L’INP-HB souhaite rejoindre cette dynamique
+              et offrir à sa communauté une boutique qui lui ressemble.
+            </p>
+
+            <div className="project-context-grid">
+              <article className="card project-summary">
+                <h3>Une ambition pour l’institut</h3>
+                <p>
+                  Porté par l’administration et né de la vision du Directeur Général, le projet
+                  prévoit une gamme d’articles conçus avec soin et un espace dédié pour les
+                  découvrir.
+                </p>
+              </article>
+              <blockquote className="project-vision">
+                <span>Notre ambition</span>
+                <p>
+                  Faire rayonner l’INP-HB aussi par son image, comme les grandes universités du
+                  monde.
+                </p>
+              </blockquote>
+            </div>
+
+            <div className="project-audiences">
+              <h3>Une boutique pensée pour toute la communauté</h3>
+              <div className="project-audience-grid">
+                <article>
+                  <h4>Visiteurs et partenaires</h4>
+                  <p>Un souvenir de l’INP-HB à emporter après une visite ou un événement.</p>
+                </article>
+                <article>
+                  <h4>Étudiantes et étudiants</h4>
+                  <p>Des articles à porter et à utiliser aux couleurs de leur école.</p>
+                </article>
+                <article>
+                  <h4>Personnel de l’institut</h4>
+                  <p>Une collection pour celles et ceux qui font vivre l’INP-HB au quotidien.</p>
+                </article>
+              </div>
+            </div>
+
+            <div className="project-team-note">
+              <span className="project-team-mark" aria-hidden="true">
+                B2
+              </span>
+              <p>
+                <strong>Un projet porté avec les étudiants.</strong> Le Bureau des Élèves (B2)
+                contribue à l’équipe projet et travaille avec le comité de pilotage, qui valide les
+                grandes étapes.
+              </p>
+            </div>
+          </div>
+        </section>
 
         <section id="equipe" className="obs">
           <div className="w">
@@ -443,7 +503,7 @@ export function LandingPage() {
           <div className="w prof">
             <div>
               <span className="kick">Le profil</span>
-              <h2>La maîtrise du geste, le goût du collectif.</h2>
+              <h2>Ce que nous recherchons</h2>
               <p className="lead">
                 Nous recherchons 2 à 3 graphistes à l’aise avec les outils de création visuelle.
                 Photoshop et Illustrator constituent un avantage important.
